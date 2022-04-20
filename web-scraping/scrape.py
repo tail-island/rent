@@ -9,24 +9,23 @@ from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
 
 
 URLS = (('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=13&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=13&sc=13101&cb=0.0&ct=9999999&mb=0&mt=9999999&et=9999999&cn=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),)
-
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=14&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=14&sc=14101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=11&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=11&sc=11101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=12&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=12&sc=12101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=08&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=08&sc=08201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=09&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=09&sc=09201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
-# ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=10&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
-#  'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=10&sc=10201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'))
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=13&sc=13101&cb=0.0&ct=9999999&mb=0&mt=9999999&et=9999999&cn=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=14&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=14&sc=14101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=11&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=11&sc=11101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=12&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=12&sc=12101&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=08&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=08&sc=08201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=09&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=09&sc=09201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'),
+        ('https://suumo.jp/jj/chintai/kensaku/FR301FB001/?ar=030&bs=040&ta=10&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=',
+         'https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=10&sc=10201&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&pc=50'))
 
 
 def get_soup(url):
-    sleeping_time = 0.2
+    sleeping_time = 1
 
     while True:
         try:
