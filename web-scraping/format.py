@@ -16,5 +16,5 @@ def format(data_frame):
     return result
 
 
-data_frame = format(pd.read_csv('rent-raw.csv'))
-data_frame.to_csv('rent-formatted.csv', index=False)
+data_frame = format(pd.read_csv('data/rent-raw.csv'))
+data_frame.to_csv('data/rent-formatted.csv', index=False)

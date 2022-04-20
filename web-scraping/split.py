@@ -17,7 +17,7 @@ def split(data_frame):
     return test_sample, test_public, test_private, train
 
 
-data_frame = pd.read_csv('rent-formatted.csv')
+data_frame = pd.read_csv('data/rent-formatted.csv')
 
 for name, (begin, end) in zip(('sample', 'public', 'private', 'rent'),
                               pairwise(accumulate((0, 100, 10000, 70000, len(data_frame)), lambda acc, count: acc + count))):
@@ -25,7 +25,7 @@ for name, (begin, end) in zip(('sample', 'public', 'private', 'rent'),
     result = result.reset_index(drop=True)
 
     if (name == 'rent'):
-        result.to_csv(f'{name}.csv', index_label='ID')
+        result.to_csv(f'data/{name}.csv', index_label='ID')
     else:
-        result.drop(columns=['家賃 + 管理費・共益費']).to_csv(f'test-{name}.csv', index_label='ID')
-        result['家賃 + 管理費・共益費'].to_csv(f'predict-{name}.csv', index_label='ID')
+        result.drop(columns=['家賃 + 管理費・共益費']).to_csv(f'data/test-{name}.csv', index_label='ID')
+        result['家賃 + 管理費・共益費'].to_csv(f'data/predict-{name}.csv', index_label='ID')
