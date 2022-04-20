@@ -9,6 +9,7 @@ def format(data_frame):
     result = data_frame
 
     result = result.drop_duplicates(subset=['URL'])
+    result = result[result['家賃 + 管理費・共益費'] <= 500000]
     result = result.drop(columns=['Unnamed: 0', 'URL', '取り扱い店舗物件コード', 'SUUMO物件コード'])
     result = result.sample(frac=1, random_state=rng)
     result = result.reset_index(drop=True)
