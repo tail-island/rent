@@ -188,4 +188,4 @@ dataFrame = pd.DataFrame(get_rows(),
                                   '次回更新日',
                                   '備考'))
 
-dataFrame.to_csv('data/rent.csv')
+dataFrame.to_csv('data/rent-raw.csv')
